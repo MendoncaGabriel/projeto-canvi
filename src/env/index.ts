@@ -6,7 +6,7 @@ const envSchema = z.object({
   NODE_ENV: z.enum(["dev", "test", "production"]).default("dev"),
   PORT: z.coerce.number().default(3333),
   PRIVATE_KEY: z.string(),
-  HOST: z.coerce.string(),
+  HOST: z.coerce.string().default("0.0.0.0"),
 
   // Database
   POSTGRES_USER: z.string(),

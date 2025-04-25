@@ -1,7 +1,9 @@
 import { FastifyInstance } from "fastify";
+import { Auth } from "../middleware/auth";
 
 export function AppRoutes(app: FastifyInstance) {
-  app.get("/", async (req, res) => {
-    return { message: "hello world" };
-  });
+  app.get("/auth", { preHandler: [Auth] }, () => ({
+    mensagem: "Endpoint protegido",
+  }));
+  app.get("/", () => ({ mensagem: "Bem-vindo à API!" }));
 }
