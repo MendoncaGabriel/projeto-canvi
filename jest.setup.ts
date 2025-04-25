@@ -1,3 +1,3 @@
-jest.mock("./src/lib/axiosClient", () => ({
-  client: require("./src/__mocks__/axiosClient"),
+jest.mock('@/lib/axiosClient', () => ({
+  createAxiosClient: jest.fn(() => require('@/__mocks__/axiosClient').default),
 }));

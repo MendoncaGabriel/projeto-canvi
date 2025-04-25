@@ -1,32 +1,26 @@
 import { GeneratePixUseCase } from './generatePixUseCase';
 import { createAxiosClient } from '@/lib/axiosClient';
+import axiosClient from '@/__mocks__/axiosClient'; 
 import { mockGeneratePixRequest, mockGeneratePixResponse } from '@/test/utils/mockCanvi';
-import { AxiosInstance } from 'axios';
 
-jest.mock('@/lib/axiosClient'); 
+jest.mock('@/lib/axiosClient');
 
-describe("Generate Pix UseCase", () => {
+describe("generate pix useCase", () => {
   let sut: GeneratePixUseCase;
-  let mockedAxios: jest.Mocked<AxiosInstance>;
 
   beforeEach(() => {
-    mockedAxios = {
-      post: jest.fn()
-    } as unknown as jest.Mocked<AxiosInstance>;
-
-    (createAxiosClient as jest.Mock).mockReturnValue(mockedAxios);
-
-    sut = new GeneratePixUseCase(mockedAxios);
+    (createAxiosClient as jest.Mock).mockReturnValue(axiosClient);
+    sut = new GeneratePixUseCase(axiosClient);
   });
 
-  it("deve chamar a API corretamente", async () => {
-    mockedAxios.post.mockResolvedValue({
-      data: mockGeneratePixResponse
+  it("should be able generate pix", async () => {
+    axiosClient.post.mockResolvedValueOnce({
+      data: mockGeneratePixResponse,
     });
 
     const result = await sut.execute(mockGeneratePixRequest);
 
     expect(result).toEqual(mockGeneratePixResponse);
-    expect(mockedAxios.post).toHaveBeenCalledWith("/pix", mockGeneratePixRequest);
+    expect(axiosClient.post).toHaveBeenCalledWith("/pix", mockGeneratePixRequest);
   });
 });
