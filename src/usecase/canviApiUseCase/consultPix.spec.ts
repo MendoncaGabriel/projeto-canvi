@@ -1,15 +1,23 @@
-import { AxiosInstance } from "axios";
+import { mockConsultPixRequest, mockConsultPixResponse } from "@/test/utils/mockCanvi";
 import { ConsultPixUseCase } from "./consultPixUseCase";
+import axiosClient from "@/__mocks__/axiosClient";
+
+jest.mock("@/lib/axiosClient");
 
 describe("consult pix usecase", () => {
   let sut: ConsultPixUseCase;
-  let mockedAxios: jest.Mocked<AxiosInstance>;
 
   beforeEach(() => {
-    mockedAxios = {
-      post: jest.fn()
-    } as unknown as jest.Mocked<AxiosInstance>;
-
-    sut = new ConsultPixUseCase(mockedAxios);
+    sut = new ConsultPixUseCase(axiosClient);
   });
-})
+
+  it("should be able consult pix", async () => {
+    axiosClient.post.mockResolvedValueOnce({
+      data: mockConsultPixResponse,
+    });
+
+    const result = await sut.execute(mockConsultPixRequest);
+
+    expect(result).toEqual(mockConsultPixResponse)
+  });
+});
