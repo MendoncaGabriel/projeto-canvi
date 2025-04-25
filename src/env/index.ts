@@ -14,6 +14,11 @@ const envSchema = z.object({
   POSTGRES_DB: z.string(),
   POSTGRES_PORT: z.string(),
   DATABASE_URL: z.string(),
+
+  // Canvi
+  CANVI_BASE_URL: z.string().url(),
+  CANVI_CLIENT_ID: z.string(),
+  CANVI_PRIVATE_KEY: z.string(),
 });
 
 const _env = envSchema.safeParse(process.env);
