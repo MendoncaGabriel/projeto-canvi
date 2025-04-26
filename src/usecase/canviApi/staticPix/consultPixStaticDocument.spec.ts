@@ -2,6 +2,8 @@ import axiosClient from "@/__mocks__/axiosClient";
 import { ConsultPixStaticDocumentUseCase } from "./consultPixStaticDocumentUseCase";
 import { mockConsultPixStaticDocumentRequest, mockConsultPixStaticDocumentResponse } from "@/test/utils/mockCanvi";
 
+jest.mock("@/lib/axiosClient");
+
 describe("consult pix static document usecase", () => {
   let sut: ConsultPixStaticDocumentUseCase;
 

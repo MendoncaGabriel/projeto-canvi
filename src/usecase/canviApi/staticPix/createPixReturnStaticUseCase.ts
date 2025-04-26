@@ -4,7 +4,7 @@ import {
 } from "@/types/canvi";
 import { AxiosInstance } from "axios";
 
-export class createPixReturnStaticUseCase {
+export class CreatePixReturnStaticUseCase {
   constructor(private readonly axiosClient: AxiosInstance) {}
 
   async execute(
