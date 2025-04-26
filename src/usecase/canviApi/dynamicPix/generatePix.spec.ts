@@ -1,9 +1,9 @@
-import { GeneratePixUseCase } from "./generatePixUseCase";
 import axiosClient from "@/__mocks__/axiosClient";
 import {
   mockGeneratePixRequest,
   mockGeneratePixResponse,
 } from "@/test/utils/mockCanvi";
+import { GeneratePixUseCase } from "./generatePixUseCase";
 
 jest.mock("@/lib/axiosClient");
 

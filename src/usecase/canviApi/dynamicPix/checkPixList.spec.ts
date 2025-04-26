@@ -1,9 +1,9 @@
 import axiosClient from "@/__mocks__/axiosClient";
-import { CheckPixListUseCase } from "./checkPixListUseCase";
 import {
   mockCheckPixListRequest,
   mockCheckPixListResponse,
 } from "@/test/utils/mockCanvi";
+import { CheckPixListUseCase } from "./checkPixListUseCase";
 
 jest.mock("@/lib/axiosClient");
 
