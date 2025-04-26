@@ -1,10 +1,14 @@
 import {
   CheckPixListDynamicRequest,
   CheckPixListDynamicResponse,
+  CheckPixListStaticRequest,
+  CheckPixListStaticResponse,
   ConsultPixDynamicRequest,
   ConsultPixDynamicResponse,
   ConsultPixStaticDocumentRequest,
   ConsultPixStaticDocumentResponse,
+  ConsultStaticPixListRequest,
+  ConsultStaticPixListResponse,
   CreatePixReturnDynamicRequest,
   CreatePixReturnDynamicResponse,
   CreatePixReturnStaticRequest,
@@ -204,3 +208,12 @@ export const mockCreatePixReturnStaticResponse: CreatePixReturnStaticResponse =
   {
     id: 152,
   };
+
+export const mockConsultStaticPixListRequest: ConsultStaticPixListRequest = {
+  data_inicial: "2025-04-22",
+  data_final: "2025-04-25",
+};
+
+export const mockConsultStaticPixListResponse: ConsultStaticPixListResponse = {
+  id: 200,
+}

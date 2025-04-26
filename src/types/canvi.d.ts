@@ -186,3 +186,12 @@ export interface CreatePixReturnStaticResponse {
   id: number;
   //não consegui idendificar o retorno na documentação ou na consulta
 }
+
+export interface ConsultStaticPixListRequest {
+  data_inicial: string;
+  data_final: string;
+}
+
+export interface ConsultStaticPixListResponse {
+  id: number;
+}
