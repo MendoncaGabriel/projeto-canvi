@@ -174,3 +174,15 @@ export interface ConsultPixStaticDocumentResponse {
     };
   };
 }
+
+export interface CreatePixReturnStaticRequest {
+  id_invoice_pix: number;
+  identificador_externo: number;
+  descricao: string;
+  texto_instrucao: string;
+}
+
+export interface CreatePixReturnStaticResponse {
+  id: number;
+  //não consegui idendificar o retorno na documentação ou na consulta
+}

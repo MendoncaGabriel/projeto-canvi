@@ -3,8 +3,12 @@ import {
   CheckPixListDynamicResponse,
   ConsultPixDynamicRequest,
   ConsultPixDynamicResponse,
+  ConsultPixStaticDocumentRequest,
+  ConsultPixStaticDocumentResponse,
   CreatePixReturnDynamicRequest,
   CreatePixReturnDynamicResponse,
+  CreatePixReturnStaticRequest,
+  CreatePixReturnStaticResponse,
   GeneratePixDynamicRequest,
   GeneratePixDynamicResponse,
   GeneratePixStaticRequest,
@@ -161,3 +165,42 @@ export const mockGeneratePixStaticResponse: GeneratePixStaticResponse = {
     tx_id: "CSC0000000000000000000151",
   },
 };
+
+export const mockConsultPixStaticDocumentRequest: ConsultPixStaticDocumentRequest =
+  {
+    id_documento: 151,
+  };
+
+export const mockConsultPixStaticDocumentResponse: ConsultPixStaticDocumentResponse =
+  {
+    code: 200,
+    mensagem: "Dados do Pix",
+    data: {
+      id_documento: 151,
+      valor: "1.00",
+      id_cobrador: "07062290000147",
+      nome_cobrador: "EMPRESA 7",
+      texto_instrucao: "Instruções",
+      descricao: "Cobrança de teste",
+      brcode:
+        "00020126790014BR.GOV.BCB.PIX0136868307c2-53c2-4a86-aaa8-f1a66a2fd49f0217Cobranca de teste52040000530398654041.005802BR5911Trocados 016009SAO PAULO62290525CSC00000000000000000001516304A9A2",
+      ativo: 1,
+      criacao: "2025-04-25 23:06:38",
+      qrcode: {
+        type: "Buffer",
+        data: [100, 97, 116],
+      },
+    },
+  };
+
+export const mockCreatePixReturnStaticRequest: CreatePixReturnStaticRequest = {
+  id_invoice_pix: 152,
+  identificador_externo: 200,
+  descricao: "Devolução de teste",
+  texto_instrucao: "Instrução...",
+};
+
+export const mockCreatePixReturnStaticResponse: CreatePixReturnStaticResponse =
+  {
+    id: 152,
+  };
