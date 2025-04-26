@@ -231,3 +231,16 @@ export interface ConfigureWebHookResponse {
   code: number;
   mensagem: string;
 }
+
+export interface ConsultWebhookRequest {
+  tipo_transacao: "pixCashin" | "boletoCashin" | "pixCashout" | "cartao";
+}
+
+export interface ConsultWebhookResponse {
+  code: number;
+  mensagem: string;
+  data: {
+    url: string;
+    type: string;
+  };
+}

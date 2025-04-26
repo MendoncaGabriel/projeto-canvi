@@ -9,6 +9,8 @@ import {
   ConsultPixStaticDocumentResponse,
   ConsultStaticPixListRequest,
   ConsultStaticPixListResponse,
+  ConsultWebhookRequest,
+  ConsultWebhookResponse,
   CreatePixReturnDynamicRequest,
   CreatePixReturnDynamicResponse,
   CreatePixReturnStaticRequest,
@@ -248,4 +250,17 @@ export const mockConfigureWebHookRequest: ConfigureWebHookRequest = {
 export const mockConfigureWebHookResponse: ConfigureWebHookResponse = {
   code: 200,
   mensagem: "WebHook configurado com sucesso!",
+};
+
+export const mockConsultWebHookRequest: ConsultWebhookRequest = {
+  tipo_transacao: "pixCashin",
+};
+
+export const mockConsultWebHookResponse: ConsultWebhookResponse = {
+  code: 200,
+  mensagem: "Informação do Webhook",
+  data: {
+    url: "https://123",
+    type: "application/json",
+  },
 };
