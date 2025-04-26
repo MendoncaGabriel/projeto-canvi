@@ -74,3 +74,16 @@ export interface ConsultPixResponse {
     tx_id: string;
   };
 }
+
+// Devolution
+export interface CreatePixReturnRequest {
+  id_invoice_pix: string;
+  identificador_externo: string;
+  descricao: string;
+  texto_instrucao: string;
+}
+
+export interface CreatePixReturnResponse {
+  id: number;
+ //não consegui idendificar o retorno na documentação ou na consulta 
+}

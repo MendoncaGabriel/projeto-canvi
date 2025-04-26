@@ -1,4 +1,11 @@
-import { ConsultPixRequest, ConsultPixResponse, GeneratePixRequest, GeneratePixResponse } from "@/types/canvi";
+import {
+  ConsultPixRequest,
+  ConsultPixResponse,
+  CreatePixReturnRequest,
+  CreatePixReturnResponse,
+  GeneratePixRequest,
+  GeneratePixResponse,
+} from "@/types/canvi";
 
 export const mockGeneratePixResponse: GeneratePixResponse = {
   code: 200,
@@ -66,10 +73,19 @@ export const mockConsultPixResponse: ConsultPixResponse = {
     codigo_rastreio: null,
     qrcode: {
       type: "Buffer",
-      data: [
-        65, 65, 65, 83, 85, 86, 79, 82, 75, 53, 67, 89, 73, 73, 61
-      ],
+      data: [65, 65, 65, 83, 85, 86, 79, 82, 75, 53, 67, 89, 73, 73, 61],
     },
     tx_id: "CDC00000000000000000000009001",
   },
+};
+
+export const mockCreatePixReturnRequest: CreatePixReturnRequest = {
+  id_invoice_pix: "58378",
+  identificador_externo: "d976da2c-e7ea-462a-91c9-0b549c96bb69",
+  descricao: "Devolução de teste",
+  texto_instrucao: "Instrução...",
+};
+
+export const mockCreatePixReturnResponse: CreatePixReturnResponse = {
+  id: 58377,
 };
