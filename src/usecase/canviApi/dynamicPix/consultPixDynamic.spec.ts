@@ -4,7 +4,7 @@ import axiosClient from "@/__mocks__/axiosClient";
 
 jest.mock("@/lib/axiosClient");
 
-describe("consult pix usecase", () => {
+describe("consult pix dynamic usecase", () => {
   let sut: ConsultPixDynamicUseCase;
 
   beforeEach(() => {

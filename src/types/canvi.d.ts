@@ -124,3 +124,29 @@ export interface CheckPixListDynamicResponse {
     ativo_liberar_devolucao: number;
   }[];
 }
+
+export interface GeneratePixStaticRequest {
+  valor: number;
+  descricao: string;
+  tipo_transacao: string;
+  texto_instrucao: string;
+  identificador_externo: string;
+  identificador_movimento: string;
+  enviar_qr_code: boolean;
+  tag: string[];
+}
+
+export interface GeneratePixStaticResponse {
+  code: number;
+  mensagem: string;
+  data: {
+    id_invoice_pix_documento: number;
+    valor: string;
+    id_cobrador: string;
+    nome_cobrador: string;
+    brcode: string;
+    criacao: string;
+    qrcode: string;
+    tx_id: string;
+  };
+}

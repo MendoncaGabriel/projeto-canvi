@@ -7,6 +7,8 @@ import {
   CreatePixReturnDynamicResponse,
   GeneratePixDynamicRequest,
   GeneratePixDynamicResponse,
+  GeneratePixStaticRequest,
+  GeneratePixStaticResponse,
 } from "@/types/canvi";
 
 export const mockGeneratePixDynamicResponse: GeneratePixDynamicResponse = {
@@ -81,16 +83,18 @@ export const mockConsultPixDynamicResponse: ConsultPixDynamicResponse = {
   },
 };
 
-export const mockCreatePixReturnDynamicRequest: CreatePixReturnDynamicRequest = {
-  id_invoice_pix: "58378",
-  identificador_externo: "d976da2c-e7ea-462a-91c9-0b549c96bb69",
-  descricao: "Devolução de teste",
-  texto_instrucao: "Instrução...",
-};
+export const mockCreatePixReturnDynamicRequest: CreatePixReturnDynamicRequest =
+  {
+    id_invoice_pix: "58378",
+    identificador_externo: "d976da2c-e7ea-462a-91c9-0b549c96bb69",
+    descricao: "Devolução de teste",
+    texto_instrucao: "Instrução...",
+  };
 
-export const mockCreatePixReturnDynamicResponse: CreatePixReturnDynamicResponse = {
-  id: 58377,
-};
+export const mockCreatePixReturnDynamicResponse: CreatePixReturnDynamicResponse =
+  {
+    id: 58377,
+  };
 
 export const mockCheckPixListDynamicRequest: CheckPixListDynamicRequest = {
   data_inicial: "2025-04-22",
@@ -128,4 +132,32 @@ export const mockCheckPixListDynamicResponse: CheckPixListDynamicResponse = {
       ativo_liberar_devolucao: 0,
     },
   ],
+};
+
+export const mockGeneratePixStaticRequest: GeneratePixStaticRequest = {
+  valor: 100,
+  descricao: "Cobrança de teste",
+  tipo_transacao: "pixStaticCashin",
+  texto_instrucao: "Instruções",
+  identificador_externo: "733c0293-ec90-448e-83bc-d6c5ee557f4a",
+  identificador_movimento: "da7956af-de73-4746-b43b-c38fb463648b",
+  enviar_qr_code: true,
+  tag: ["tag1", "tag2"],
+};
+
+export const mockGeneratePixStaticResponse: GeneratePixStaticResponse = {
+  code: 200,
+  mensagem: "Pix Estático Gerado",
+  data: {
+    id_invoice_pix_documento: 151,
+    valor: "1.00",
+    id_cobrador: "07062290000147",
+    nome_cobrador: "EMPRESA 7",
+    brcode:
+      "00020126790014BR.GOV.BCB.PIX0136868307c2-53c2-4a86-aaa8-f1a66a2fd49f0217Cobranca de teste52040000530398654041.005802BR5911Trocados 016009SAO PAULO62290525CSC00000000000000000001516304A9A2",
+    criacao: "2025-04-25T23:06:38.100+00:00",
+    qrcode:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPoAAAD6AQAAAACgl2eQAAACx0lEQVR4Xu2WS3LkIBAF4SJw/1vMUeAiMJnFhCX3wjELq1bC7ZYE2REv6tVHZf+8/pTPnY/1Ame9wFkvcNb/AaOUuuqee7U+V6lxdTMRmHzmnqNPt1vdo4/qZiYQj6PvuVprFaivejZTAeQZHHTuvfowUunAsWrpENiX8jzAR6JDoKq27fOD724+DJif83N9ZvXn+S8DLlOFdEUcZ/0IdGUBo9RR2fVKvKaB8gc9EZgLnzTK617B7JENYMwQsnPonUatW9I+DxiXriguq5W49BFS0wA1TsOFZaU1Wikpe0ooD2jOk1HVRhcRUvBlVgJATOicpGkXtZHM850I+GSclBunIfabWRkA91Gzc2gWH3+SChAhzeKmHqAq+u7m44B1S61aQUyW5hfvGe1WWc8DER2DBWD6cI9XEaw8YKrqaBO0ipF9mZUA0D6pnKpn/hEj37QildOAUOc4satz1pEXXSwRODkSTcQbmplBGreMeh44dhEhZjzJE4GKF51EQJHsR/Fug0W6IvJWvAkAMySUOdRivnlzN+t5wFeJdWYrTYwz5U0V5wGDOHmitm430zruM4F4tnFRMxDDyW4R9URAAqu2WUp8UMsvZBIB1ZGzy3cdI4ZXK/pIIkCG2MIQ+S9W9NLqpM8ETFob2PJNzxoC9iERkBghjylCtmgdWL3cfB4gN5RHC2Fz2dDCtsusBMBsMVjMtogRqWLxXmYlAFG4xTd+juS69WsK5QHLeWbjnAbtyOT/MisDQCTeeBrFW91ScyJgM4+SjdW8aTHcEgEX4milZmyNHK4RrTxgFJM2Kjeq2JShgi+zEgDzhC6KVYqE5jL3vboTgOEYwx0Oebc57pVb8SYBw8rp6t1GjBZSL7OyAFKEQNHOpmkTh640YGsVSYpdkT7WLTl8Bep5wByZp3gpWsoHwdsRlwj8tF7grBc46wXO+gXgL6yKJj0s1HDXAAAAAElFTkSuQmCC",
+    tx_id: "CSC0000000000000000000151",
+  },
 };

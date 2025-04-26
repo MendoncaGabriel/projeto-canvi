@@ -7,7 +7,7 @@ import {
 
 jest.mock("@/lib/axiosClient");
 
-describe("devolution pix usecase", () => {
+describe("devolution pix dynamic usecase", () => {
   let sut: CreatePixReturnDynamicUseCase;
 
   beforeEach(() => {

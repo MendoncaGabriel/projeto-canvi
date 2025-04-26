@@ -7,7 +7,7 @@ import { GeneratePixDynamicUseCase } from "./generatePixDynamicUseCase";
 
 jest.mock("@/lib/axiosClient");
 
-describe("generate pix useCase", () => {
+describe("generate pix dynamic usecase", () => {
   let sut: GeneratePixDynamicUseCase;
 
   beforeEach(() => {

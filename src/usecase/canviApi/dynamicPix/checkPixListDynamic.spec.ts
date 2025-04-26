@@ -7,7 +7,7 @@ import { CheckPixListDynamicUseCase } from "./checkPixListDynamicUseCase";
 
 jest.mock("@/lib/axiosClient");
 
-describe("check pix list usecase", () => {
+describe("check pix list dynamic usecase", () => {
   let sut: CheckPixListDynamicUseCase;
 
   beforeEach(() => {

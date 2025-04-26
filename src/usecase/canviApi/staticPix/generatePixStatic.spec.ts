@@ -1,30 +1,30 @@
 import axiosClient from "@/__mocks__/axiosClient";
 import {
-  mockGeneratePixRequest,
-  mockGeneratePixResponse,
+  mockGeneratePixStaticRequest,
+  mockGeneratePixStaticResponse,
 } from "@/test/utils/mockCanvi";
-import { GeneratePixUseCase } from "./generatePixStaticUseCase";
+import { GeneratePixStaticUseCase } from "./generatePixStaticUseCase";
 
 jest.mock("@/lib/axiosClient");
 
-describe("generate pix useCase", () => {
-  let sut: GeneratePixUseCase;
+describe("generate pix static useCase", () => {
+  let sut: GeneratePixStaticUseCase;
 
   beforeEach(() => {
-    sut = new GeneratePixUseCase(axiosClient);
+    sut = new GeneratePixStaticUseCase(axiosClient);
   });
 
-  it("should be able generate pix", async () => {
+  it("should be able generate pix static", async () => {
     axiosClient.post.mockResolvedValueOnce({
-      data: mockGeneratePixResponse,
+      data: mockGeneratePixStaticResponse,
     });
 
-    const result = await sut.execute(mockGeneratePixRequest);
+    const result = await sut.execute(mockGeneratePixStaticRequest);
 
-    expect(result).toEqual(mockGeneratePixResponse);
+    expect(result).toEqual(mockGeneratePixStaticResponse);
     expect(axiosClient.post).toHaveBeenCalledWith(
       "/pix",
-      mockGeneratePixRequest
+      mockGeneratePixStaticRequest
     );
   });
 });
