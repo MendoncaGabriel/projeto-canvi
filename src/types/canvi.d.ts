@@ -150,3 +150,27 @@ export interface GeneratePixStaticResponse {
     tx_id: string;
   };
 }
+
+export interface ConsultPixStaticDocumentRequest {
+  id_documento: number;
+}
+
+export interface ConsultPixStaticDocumentResponse {
+  code: number;
+  mensagem: string;
+  data: {
+    id_documento: number;
+    valor: string;
+    id_cobrador: string;
+    nome_cobrador: string;
+    texto_instrucao: string;
+    descricao: string;
+    brcode: string;
+    ativo: number;
+    criacao: string;
+    qrcode: {
+      type: string;
+      data: number[];
+    };
+  };
+}
