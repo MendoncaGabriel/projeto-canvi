@@ -1,8 +1,6 @@
 import {
-  CheckPixListDynamicRequest,
-  CheckPixListDynamicResponse,
-  CheckPixListStaticRequest,
-  CheckPixListStaticResponse,
+  ConsultDynamicPixListRequest,
+  ConsultDynamicPixListResponse,
   ConsultPixDynamicRequest,
   ConsultPixDynamicResponse,
   ConsultPixStaticDocumentRequest,
@@ -104,12 +102,12 @@ export const mockCreatePixReturnDynamicResponse: CreatePixReturnDynamicResponse 
     id: 58377,
   };
 
-export const mockCheckPixListDynamicRequest: CheckPixListDynamicRequest = {
+export const mockConsultDynamicPixListRequest: ConsultDynamicPixListRequest = {
   data_inicial: "2025-04-22",
   data_final: "2025-04-25",
 };
 
-export const mockCheckPixListDynamicResponse: CheckPixListDynamicResponse = {
+export const mockConsultDynamicPixListResponse: ConsultDynamicPixListResponse = {
   code: 200,
   mensagem: "Consulta PIX",
   data: [

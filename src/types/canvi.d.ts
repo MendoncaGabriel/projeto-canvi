@@ -89,12 +89,12 @@ export interface CreatePixReturnDynamicResponse {
 }
 
 // check pix list
-export interface CheckPixListDynamicRequest {
+export interface ConsultDynamicPixListRequest {
   data_inicial: string;
   data_final: string;
 }
 
-export interface CheckPixListDynamicResponse {
+export interface ConsultDynamicPixListResponse {
   code: number;
   mensagem: string;
   data: {
