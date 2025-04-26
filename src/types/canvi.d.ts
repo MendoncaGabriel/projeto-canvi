@@ -1,9 +1,9 @@
-// token
 export interface GenerateTokenResponse {
   code: number;
   message: string;
   token: string;
 }
+
 export interface GeneratePixDynamicRequest {
   valor: number;
   vencimento?: string;
@@ -22,7 +22,6 @@ export interface GeneratePixDynamicRequest {
   };
 }
 
-// Generate pix
 export interface GeneratePixDynamicResponse {
   code: number;
   mensagem: string;
@@ -40,10 +39,10 @@ export interface GeneratePixDynamicResponse {
   };
 }
 
-// Consult pix
 export interface ConsultPixDynamicRequest {
   id_invoice_pix: number;
 }
+
 export interface ConsultPixDynamicResponse {
   code: number;
   mensagem: string;
@@ -75,7 +74,6 @@ export interface ConsultPixDynamicResponse {
   };
 }
 
-// Devolution
 export interface CreatePixReturnDynamicRequest {
   id_invoice_pix: string;
   identificador_externo: string;
@@ -83,12 +81,11 @@ export interface CreatePixReturnDynamicRequest {
   texto_instrucao: string;
 }
 
+//não consegui idendificar o retorno na documentação ou na consulta
 export interface CreatePixReturnDynamicResponse {
   id: number;
-  //não consegui idendificar o retorno na documentação ou na consulta
 }
 
-// check pix list
 export interface ConsultDynamicPixListRequest {
   data_inicial: string;
   data_final: string;
@@ -182,9 +179,9 @@ export interface CreatePixReturnStaticRequest {
   texto_instrucao: string;
 }
 
+//não consegui idendificar o retorno na documentação ou na consulta
 export interface CreatePixReturnStaticResponse {
   id: number;
-  //não consegui idendificar o retorno na documentação ou na consulta
 }
 
 export interface ConsultStaticPixListRequest {
@@ -194,4 +191,32 @@ export interface ConsultStaticPixListRequest {
 
 export interface ConsultStaticPixListResponse {
   id: number;
+}
+
+export interface SimulateWriteOffRequest {
+  id: number;
+  tipo_transacao: string;
+  pix?: {
+    pagamento: {
+      valor: string;
+      pagador: {
+        id: string;
+        nome: string;
+      };
+    };
+  };
+  boleto?: {
+    pagamento: {
+      valor: string;
+      data: string;
+      pix?: {
+        E2EId: string;
+      };
+    };
+  };
+}
+
+//não consegui idendificar o retorno na documentação ou na consulta
+export interface SimulateWriteOffResponse {
+  id: number
 }

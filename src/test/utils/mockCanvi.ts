@@ -15,6 +15,8 @@ import {
   GeneratePixDynamicResponse,
   GeneratePixStaticRequest,
   GeneratePixStaticResponse,
+  SimulateWriteOffRequest,
+  SimulateWriteOffResponse,
 } from "@/types/canvi";
 
 export const mockGeneratePixDynamicResponse: GeneratePixDynamicResponse = {
@@ -107,38 +109,39 @@ export const mockConsultDynamicPixListRequest: ConsultDynamicPixListRequest = {
   data_final: "2025-04-25",
 };
 
-export const mockConsultDynamicPixListResponse: ConsultDynamicPixListResponse = {
-  code: 200,
-  mensagem: "Consulta PIX",
-  data: [
-    {
-      sigla: "invoicePix",
-      nome_servico: "PIX COBRANÇA",
-      id: 58376,
-      id_transacao: 9000,
-      valor_bruto: "1.40",
-      valor_taxa: "0.00",
-      data_criacao: "2025-04-24 16:47:13",
-      data_efetivacao: null,
-      data_baixa: null,
-      nome_situacao: "FALHA",
-      id_pagador: null,
-      nome_pagador: null,
-      codigo_rastreio: null,
-      texto_instrucao: "Instruções",
-      identificador_externo: "791defb6-2cfb-4ce7-9b3b-0c3927fd6b22",
-      soma_saldo: "-36.71",
-      id_empresa: 67,
-      texto_descricao: "FALHA",
-      nome_banco: null,
-      codigo: null,
-      agencia: null,
-      id_recebedor: null,
-      nome_recebedor: null,
-      ativo_liberar_devolucao: 0,
-    },
-  ],
-};
+export const mockConsultDynamicPixListResponse: ConsultDynamicPixListResponse =
+  {
+    code: 200,
+    mensagem: "Consulta PIX",
+    data: [
+      {
+        sigla: "invoicePix",
+        nome_servico: "PIX COBRANÇA",
+        id: 58376,
+        id_transacao: 9000,
+        valor_bruto: "1.40",
+        valor_taxa: "0.00",
+        data_criacao: "2025-04-24 16:47:13",
+        data_efetivacao: null,
+        data_baixa: null,
+        nome_situacao: "FALHA",
+        id_pagador: null,
+        nome_pagador: null,
+        codigo_rastreio: null,
+        texto_instrucao: "Instruções",
+        identificador_externo: "791defb6-2cfb-4ce7-9b3b-0c3927fd6b22",
+        soma_saldo: "-36.71",
+        id_empresa: 67,
+        texto_descricao: "FALHA",
+        nome_banco: null,
+        codigo: null,
+        agencia: null,
+        id_recebedor: null,
+        nome_recebedor: null,
+        ativo_liberar_devolucao: 0,
+      },
+    ],
+  };
 
 export const mockGeneratePixStaticRequest: GeneratePixStaticRequest = {
   valor: 100,
@@ -214,4 +217,23 @@ export const mockConsultStaticPixListRequest: ConsultStaticPixListRequest = {
 
 export const mockConsultStaticPixListResponse: ConsultStaticPixListResponse = {
   id: 200,
-}
+};
+
+export const mockSimulateWriteOffRequest: SimulateWriteOffRequest = {
+  id: 158,
+  tipo_transacao: "pixCashin",
+  pix: {
+    pagamento: {
+      valor: "100.00",
+      pagador: {
+        id: "000.000.000-00",
+        nome: "Jhon due",
+      },
+    },
+  },
+};
+
+
+export const mockSimulateWriteOffResponse: SimulateWriteOffResponse = {
+  id: 158,
+};
