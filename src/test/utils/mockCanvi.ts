@@ -1,4 +1,6 @@
 import {
+  ConfigureWebHookRequest,
+  ConfigureWebHookResponse,
   ConsultDynamicPixListRequest,
   ConsultDynamicPixListResponse,
   ConsultPixDynamicRequest,
@@ -233,7 +235,17 @@ export const mockSimulateWriteOffRequest: SimulateWriteOffRequest = {
   },
 };
 
-
 export const mockSimulateWriteOffResponse: SimulateWriteOffResponse = {
   id: 158,
+};
+
+export const mockConfigureWebHookRequest: ConfigureWebHookRequest = {
+  tipo_transacao: "pixCashin",
+  url: "https://123",
+  type: "json",
+};
+
+export const mockConfigureWebHookResponse: ConfigureWebHookResponse = {
+  code: 200,
+  mensagem: "WebHook configurado com sucesso!",
 };

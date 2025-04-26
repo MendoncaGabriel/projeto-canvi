@@ -218,5 +218,16 @@ export interface SimulateWriteOffRequest {
 
 //não consegui idendificar o retorno na documentação ou na consulta
 export interface SimulateWriteOffResponse {
-  id: number
+  id: number;
+}
+
+export interface ConfigureWebHookRequest {
+  tipo_transacao: string;
+  url: string;
+  type: "json" | "urlencoded" | "form_data";
+}
+
+export interface ConfigureWebHookResponse {
+  code: number;
+  mensagem: string;
 }
