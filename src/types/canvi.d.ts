@@ -85,5 +85,42 @@ export interface CreatePixReturnRequest {
 
 export interface CreatePixReturnResponse {
   id: number;
- //não consegui idendificar o retorno na documentação ou na consulta 
+  //não consegui idendificar o retorno na documentação ou na consulta
+}
+
+// check pix list
+export interface CheckPixListRequest {
+  data_inicial: string;
+  data_final: string;
+}
+
+export interface CheckPixListResponse {
+  code: number;
+  mensagem: string;
+  data: {
+    sigla: string;
+    nome_servico: string;
+    id: number;
+    id_transacao: number;
+    valor_bruto: string;
+    valor_taxa: string;
+    data_criacao: string;
+    data_efetivacao: string | null;
+    data_baixa: string | null;
+    nome_situacao: string;
+    id_pagador: number | null;
+    nome_pagador: string | null;
+    codigo_rastreio: string | null;
+    texto_instrucao: string;
+    identificador_externo: string;
+    soma_saldo: string;
+    id_empresa: number;
+    texto_descricao: string;
+    nome_banco: string | null;
+    codigo: string | null;
+    agencia: string | null;
+    id_recebedor: number | null;
+    nome_recebedor: string | null;
+    ativo_liberar_devolucao: number;
+  }[];
 }

@@ -1,4 +1,6 @@
 import {
+  CheckPixListRequest,
+  CheckPixListResponse,
   ConsultPixRequest,
   ConsultPixResponse,
   CreatePixReturnRequest,
@@ -88,4 +90,42 @@ export const mockCreatePixReturnRequest: CreatePixReturnRequest = {
 
 export const mockCreatePixReturnResponse: CreatePixReturnResponse = {
   id: 58377,
+};
+
+export const mockCheckPixListRequest: CheckPixListRequest = {
+  data_inicial: "2025-04-22",
+  data_final: "2025-04-25",
+};
+
+export const mockCheckPixListResponse: CheckPixListResponse = {
+  code: 200,
+  mensagem: "Consulta PIX",
+  data: [
+    {
+      sigla: "invoicePix",
+      nome_servico: "PIX COBRANÇA",
+      id: 58376,
+      id_transacao: 9000,
+      valor_bruto: "1.40",
+      valor_taxa: "0.00",
+      data_criacao: "2025-04-24 16:47:13",
+      data_efetivacao: null,
+      data_baixa: null,
+      nome_situacao: "FALHA",
+      id_pagador: null,
+      nome_pagador: null,
+      codigo_rastreio: null,
+      texto_instrucao: "Instruções",
+      identificador_externo: "791defb6-2cfb-4ce7-9b3b-0c3927fd6b22",
+      soma_saldo: "-36.71",
+      id_empresa: 67,
+      texto_descricao: "FALHA",
+      nome_banco: null,
+      codigo: null,
+      agencia: null,
+      id_recebedor: null,
+      nome_recebedor: null,
+      ativo_liberar_devolucao: 0,
+    },
+  ],
 };
