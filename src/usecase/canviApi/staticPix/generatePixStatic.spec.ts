@@ -3,7 +3,7 @@ import {
   mockGeneratePixRequest,
   mockGeneratePixResponse,
 } from "@/test/utils/mockCanvi";
-import { GeneratePixUseCase } from "./generatePixUseCase";
+import { GeneratePixUseCase } from "./generatePixStaticUseCase";
 
 jest.mock("@/lib/axiosClient");
 

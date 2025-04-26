@@ -4,7 +4,7 @@ export interface GenerateTokenResponse {
   message: string;
   token: string;
 }
-export interface GeneratePixRequest {
+export interface GeneratePixDynamicRequest {
   valor: number;
   vencimento?: string;
   descricao: string;
@@ -23,7 +23,7 @@ export interface GeneratePixRequest {
 }
 
 // Generate pix
-export interface GeneratePixResponse {
+export interface GeneratePixDynamicResponse {
   code: number;
   mensagem: string;
   data: {
@@ -41,10 +41,10 @@ export interface GeneratePixResponse {
 }
 
 // Consult pix
-export interface ConsultPixRequest {
+export interface ConsultPixDynamicRequest {
   id_invoice_pix: number;
 }
-export interface ConsultPixResponse {
+export interface ConsultPixDynamicResponse {
   code: number;
   mensagem: string;
   data: {
@@ -76,25 +76,25 @@ export interface ConsultPixResponse {
 }
 
 // Devolution
-export interface CreatePixReturnRequest {
+export interface CreatePixReturnDynamicRequest {
   id_invoice_pix: string;
   identificador_externo: string;
   descricao: string;
   texto_instrucao: string;
 }
 
-export interface CreatePixReturnResponse {
+export interface CreatePixReturnDynamicResponse {
   id: number;
   //não consegui idendificar o retorno na documentação ou na consulta
 }
 
 // check pix list
-export interface CheckPixListRequest {
+export interface CheckPixListDynamicRequest {
   data_inicial: string;
   data_final: string;
 }
 
-export interface CheckPixListResponse {
+export interface CheckPixListDynamicResponse {
   code: number;
   mensagem: string;
   data: {

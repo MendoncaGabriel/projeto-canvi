@@ -1,15 +1,15 @@
 import {
-  CheckPixListRequest,
-  CheckPixListResponse,
-  ConsultPixRequest,
-  ConsultPixResponse,
-  CreatePixReturnRequest,
-  CreatePixReturnResponse,
-  GeneratePixRequest,
-  GeneratePixResponse,
+  CheckPixListDynamicRequest,
+  CheckPixListDynamicResponse,
+  ConsultPixDynamicRequest,
+  ConsultPixDynamicResponse,
+  CreatePixReturnDynamicRequest,
+  CreatePixReturnDynamicResponse,
+  GeneratePixDynamicRequest,
+  GeneratePixDynamicResponse,
 } from "@/types/canvi";
 
-export const mockGeneratePixResponse: GeneratePixResponse = {
+export const mockGeneratePixDynamicResponse: GeneratePixDynamicResponse = {
   code: 200,
   mensagem: "Invoice PIX gerado",
   data: {
@@ -28,7 +28,7 @@ export const mockGeneratePixResponse: GeneratePixResponse = {
   },
 };
 
-export const mockGeneratePixRequest: GeneratePixRequest = {
+export const mockGeneratePixDynamicRequest: GeneratePixDynamicRequest = {
   valor: 140,
   vencimento: "2025-04-28T18:45:00",
   descricao: "Cobrança de teste",
@@ -45,11 +45,11 @@ export const mockGeneratePixRequest: GeneratePixRequest = {
   },
 };
 
-export const mockConsultPixRequest: ConsultPixRequest = {
+export const mockConsultPixDynamicRequest: ConsultPixDynamicRequest = {
   id_invoice_pix: 58377,
 };
 
-export const mockConsultPixResponse: ConsultPixResponse = {
+export const mockConsultPixDynamicResponse: ConsultPixDynamicResponse = {
   code: 200,
   mensagem: "Dados do Pix",
   data: {
@@ -81,23 +81,23 @@ export const mockConsultPixResponse: ConsultPixResponse = {
   },
 };
 
-export const mockCreatePixReturnRequest: CreatePixReturnRequest = {
+export const mockCreatePixReturnDynamicRequest: CreatePixReturnDynamicRequest = {
   id_invoice_pix: "58378",
   identificador_externo: "d976da2c-e7ea-462a-91c9-0b549c96bb69",
   descricao: "Devolução de teste",
   texto_instrucao: "Instrução...",
 };
 
-export const mockCreatePixReturnResponse: CreatePixReturnResponse = {
+export const mockCreatePixReturnDynamicResponse: CreatePixReturnDynamicResponse = {
   id: 58377,
 };
 
-export const mockCheckPixListRequest: CheckPixListRequest = {
+export const mockCheckPixListDynamicRequest: CheckPixListDynamicRequest = {
   data_inicial: "2025-04-22",
   data_final: "2025-04-25",
 };
 
-export const mockCheckPixListResponse: CheckPixListResponse = {
+export const mockCheckPixListDynamicResponse: CheckPixListDynamicResponse = {
   code: 200,
   mensagem: "Consulta PIX",
   data: [

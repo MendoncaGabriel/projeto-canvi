@@ -1,11 +1,11 @@
-import { CreatePixReturnRequest, CreatePixReturnResponse } from "@/types/canvi";
+import { CreatePixReturnDynamicRequest, CreatePixReturnDynamicResponse } from "@/types/canvi";
 import { AxiosInstance } from "axios";
 
-export class CreatePixReturnUseCase {
+export class CreatePixReturnDynamicUseCase {
   constructor(private readonly clientAxios: AxiosInstance) {}
   async execute(
-    body: CreatePixReturnRequest
-  ): Promise<CreatePixReturnResponse> {
+    body: CreatePixReturnDynamicRequest
+  ): Promise<CreatePixReturnDynamicResponse> {
     const { data } = await this.clientAxios.post(
       "/pix/dinamico/devolucao",
       body
