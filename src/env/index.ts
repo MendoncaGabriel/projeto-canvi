@@ -9,10 +9,10 @@ const envSchema = z.object({
   HOST: z.coerce.string().default("0.0.0.0"),
 
   // Database
-  POSTGRES_USER: z.string(),
-  POSTGRES_PASSWORD: z.string(),
-  POSTGRES_DB: z.string(),
-  POSTGRES_PORT: z.string(),
+  MYSQL_USER: z.string(),
+  MYSQL_PASSWORD: z.string(),
+  MYSQL_DB: z.string(),
+  MYSQL_PORT: z.string(),
   DATABASE_URL: z.string(),
 
   // Canvi
