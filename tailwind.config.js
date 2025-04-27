@@ -1,0 +1,1 @@
+// criei este arquivo apenas para ter inteligencia do tailwind
