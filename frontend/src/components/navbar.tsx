@@ -35,19 +35,19 @@ export function Navbar() {
           </svg>
         </button>
 
-        <ul className={`${isMenuOpen ? 'flex' : 'hidden'} md:flex flex-col md:flex-row gap-4 md:items-center text-lg font-semibold`}>
+        <ul className={`${isMenuOpen ? 'flex' : 'hidden'} sm:border-none border-t border-amber-900 md:flex flex-row gap-4 items-center text-lg font-semibold justify-center`}>
           <li>
-            <Link href="/" className="text-amber-900 hover:text-orange-500 transition-colors">
+            <Link href="/" className="text-amber-900 hover:text-orange-500 transition-colors block py-2">
               Início
             </Link>
           </li>
           <li>
-            <Link href="/sobre" className="text-amber-900 hover:text-orange-500 transition-colors">
+            <Link href="/sobre" className="text-amber-900 hover:text-orange-500 transition-colors block py-2">
               Sobre
             </Link>
           </li>
           <li>
-            <Link href="/contato" className="text-amber-900 hover:text-orange-500 transition-colors">
+            <Link href="/contato" className="text-amber-900 hover:text-orange-500 transition-colors block py-2">
               Contato
             </Link>
           </li>
