@@ -41,15 +41,15 @@ export function Store() {
   ];
 
   return (
-    <div className="p-5 m-auto max-w-screen-xl">
-      <h1 className="text-amber-900 text-2xl font-bold">Nossa lojinha</h1>
-      <p className="text-amber-900 mb-6">
+    <div className="px-4 py-6 md:p-8 mx-auto max-w-screen-xl">
+      <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-amber-900 mb-3">Nossa lojinha</h1>
+      <p className="text-amber-900 mb-8 text-sm md:text-base max-w-3xl">
         Em cada compra realizada em nossa loja, 30% do valor é destinado diretamente aos abrigos parceiros. 
         Seu apoio ajuda a fornecer alimentos, medicamentos e cuidados veterinários para centenas de animais resgatados. 
         Compre com propósito, faça a diferença!
       </p>
 
-      <div className="grid grid-cols-2 sm:grid-cols-4 ld:grid-cols-5 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6 place-items-center">
         {mockProducts.map(product => (
           <ProductCard
             key={product.id}

@@ -19,7 +19,7 @@ export default function Home() {
         <Navbar />
         <Banner />
 
-        <div className="flex items-center justify-around m-auto p-5 max-w-screen-xl">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 p-4 md:p-5 max-w-screen-xl mx-auto">
           <CardDonateResume title="DOAÇÕES" value="5,852" />
           <CardDonateResume title="META DA CAMPANHA" value="12,356" />
           <CardDonateResume title="TOTAL ARRECADADO" value="20,252" />
