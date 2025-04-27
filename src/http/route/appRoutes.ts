@@ -5,5 +5,10 @@ export function AppRoutes(app: FastifyInstance) {
   app.get("/auth", { preHandler: [Auth] }, () => ({
     mensagem: "Endpoint protegido",
   }));
-  app.get("/", () => ({ mensagem: "Bem-vindo à API!" }));
+  
+  app.get("/", async (request, reply) => {
+    return reply.view("index.ejs", { 
+      message: "Welcome to Projeto Canvi!"
+    });
+  });
 }
