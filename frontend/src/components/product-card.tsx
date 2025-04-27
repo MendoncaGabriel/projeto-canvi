@@ -11,13 +11,13 @@ interface ProductProps {
 
 export function ProductCard({ image, name, description, price, oldPrice, discount }: ProductProps) {
   return (
-    <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden max-w-[250px]">
+    <div className="hover:cursor-pointer bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden max-w-[300px]">
       <div className="relative">
         <Image 
           src={`/products/${image}`}
           alt={name} 
           className="w-full aspect-[3/4] object-cover"
-          width={250}
+          width={300}
           height={333}
         />
         {discount && (
