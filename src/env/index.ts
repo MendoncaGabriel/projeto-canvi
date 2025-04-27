@@ -9,10 +9,11 @@ const envSchema = z.object({
   HOST: z.coerce.string().default("0.0.0.0"),
 
   // Database
+  MYSQL_ROOT_PASSWORD: z.string(),
+  MYSQL_DATABASE: z.string(),
   MYSQL_USER: z.string(),
   MYSQL_PASSWORD: z.string(),
-  MYSQL_DB: z.string(),
-  MYSQL_PORT: z.string(),
+  MYSQL_PORT: z.coerce.number().default(3306),
   DATABASE_URL: z.string(),
 
   // Canvi
