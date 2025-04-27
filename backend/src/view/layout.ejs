@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= tituloPagina %></title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gray-100">
+  <%- include('components/navbar') %>
+  <%- include('components/banner') %>
+
+  <div class="flex items-center justify-around  m-auto p-5 max-w-screen-xl">
+    <%- include('components/cardDonateResume', {title: "DOAÇÕES", value: "5,852"}) %>
+    <%- include('components/cardDonateResume', {title: "META DA CAMPANHA", value: "12,356"}) %>
+    <%- include('components/cardDonateResume', {title: "TOTAL ARRECADADO", value: "20,252"}) %>
+  </div>
+  
+  <%- include('components/store')%>
+
+  <div class="p-5">
+    <h1 class="text-amber-900 text-2xl font-bold">Nossa lojinha</h1>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi, dolore!</p>
+  
+    <div>
+      <%- include('components/cardProduct', {
+        image: "https://cobasi.vteximg.com.br/arquivos/ids/939213/racao-golden-formula-caes-adultos-racas-pequenas-frango-arroz-mini-bits-3626279-3kg-lado.jpg?v=638127640834670000",
+        name: "Product Name",
+        description: "Product description text",
+        price: 99.99,
+        oldPrice: 129.99, // optional
+        discount: 20 // optional
+      }) %>
+    </div>
+  </div>
+
+
+
+</body>
+</html>

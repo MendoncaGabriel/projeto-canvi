@@ -13,14 +13,18 @@ app.setErrorHandler(errorHandler);
 
 app.register(fastifyStatic, {
   root: path.resolve("src", "public"),
-  // prefix: "/public/",
 });
 
 app.register(fastifyView, {
   engine: {
     ejs: ejs,
   },
-  root: "./src/view",
+  root: path.resolve(__dirname, "./view"),
+  viewExt: "ejs",
+  options: {
+    cache: false,
+    async: false,
+  },
 });
 
 app.register(jwt, {
