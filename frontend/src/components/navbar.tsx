@@ -35,7 +35,7 @@ export function Navbar() {
           </svg>
         </button>
 
-        <ul className={`${isMenuOpen ? 'flex' : 'hidden'} md:flex flex-col md:flex-row gap-4 md:items-center`}>
+        <ul className={`${isMenuOpen ? 'flex' : 'hidden'} md:flex flex-col md:flex-row gap-4 md:items-center text-lg font-semibold`}>
           <li>
             <Link href="/" className="text-amber-900 hover:text-orange-500 transition-colors">
               Início
