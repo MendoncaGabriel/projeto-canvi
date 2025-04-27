@@ -81,7 +81,7 @@ export interface CreatePixReturnDynamicRequest {
   texto_instrucao: string;
 }
 
-//não consegui idendificar o retorno na documentação ou na consulta
+//❌ não consegui idendificar o retorno na documentação ou na consulta
 export interface CreatePixReturnDynamicResponse {
   id: number;
 }
@@ -179,7 +179,7 @@ export interface CreatePixReturnStaticRequest {
   texto_instrucao: string;
 }
 
-//não consegui idendificar o retorno na documentação ou na consulta
+//❌ não consegui idendificar o retorno na documentação ou na consulta
 export interface CreatePixReturnStaticResponse {
   id: number;
 }
@@ -190,7 +190,34 @@ export interface ConsultStaticPixListRequest {
 }
 
 export interface ConsultStaticPixListResponse {
-  id: number;
+  code: number;
+  mensagem: string;
+  data: {
+    sigla: string;
+    nome_servico: string;
+    id: number;
+    id_transacao: number;
+    valor_bruto: string;
+    valor_taxa: string;
+    data_criacao: string;
+    data_efetivacao: string;
+    data_baixa: string;
+    nome_situacao: string;
+    id_pagador: string;
+    nome_pagador: string;
+    codigo_rastreio: string;
+    texto_instrucao: string;
+    identificador_externo: string;
+    soma_saldo: string;
+    id_empresa: number;
+    texto_descricao: string;
+    nome_banco: string | null;
+    codigo: string | null;
+    agencia: string | null;
+    id_recebedor: string | null;
+    nome_recebedor: string | null;
+    ativo_liberar_devolucao: number;
+  }[];
 }
 
 export interface SimulateWriteOffRequest {
@@ -216,9 +243,10 @@ export interface SimulateWriteOffRequest {
   };
 }
 
-//não consegui idendificar o retorno na documentação ou na consulta
 export interface SimulateWriteOffResponse {
-  id: number;
+  code: number;
+  mensagem: string;
+  data: string;
 }
 
 export interface ConfigureWebHookRequest {

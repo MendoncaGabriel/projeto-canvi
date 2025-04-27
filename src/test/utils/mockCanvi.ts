@@ -220,7 +220,36 @@ export const mockConsultStaticPixListRequest: ConsultStaticPixListRequest = {
 };
 
 export const mockConsultStaticPixListResponse: ConsultStaticPixListResponse = {
-  id: 200,
+  code: 200,
+  mensagem: "Consulta PIX",
+  data: [
+    {
+      sigla: "pixEstatico",
+      nome_servico: "PIX ESTÁTICO",
+      id: 164,
+      id_transacao: 9064,
+      valor_bruto: "100.00",
+      valor_taxa: "0.00",
+      data_criacao: "2025-04-26 19:34:41",
+      data_efetivacao: "2025-04-26 19:34:41",
+      data_baixa: "2025-04-26 19:34:41",
+      nome_situacao: "EFETUADO",
+      id_pagador: "000.000.000-00",
+      nome_pagador: "Jhon due",
+      codigo_rastreio: "9700e036-08a0-4363-b637-e7aa4e8f671b",
+      texto_instrucao: "Instruções",
+      identificador_externo: "a326fc6f-551c-4401-aa42-55d58631fce6",
+      soma_saldo: "61.09",
+      id_empresa: 67,
+      texto_descricao: "Jhon due",
+      nome_banco: null,
+      codigo: null,
+      agencia: null,
+      id_recebedor: null,
+      nome_recebedor: null,
+      ativo_liberar_devolucao: 1,
+    },
+  ],
 };
 
 export const mockSimulateWriteOffRequest: SimulateWriteOffRequest = {
@@ -238,7 +267,9 @@ export const mockSimulateWriteOffRequest: SimulateWriteOffRequest = {
 };
 
 export const mockSimulateWriteOffResponse: SimulateWriteOffResponse = {
-  id: 158,
+  code: 200,
+  mensagem: "Evento registrado",
+  data: "",
 };
 
 export const mockConfigureWebHookRequest: ConfigureWebHookRequest = {
