@@ -28,7 +28,7 @@ export function PartnerNGOs() {
     <div className="p-5 m-auto max-w-screen-xl">
       <h1 className="text-amber-900 text-2xl font-bold ">ONGs Parceiras</h1>
 
-      <div className="flex items-center justify-start mt-5">
+      <div className="flex items-center justify-start mt-5 space-x-8">
         {mockOngs.map((ong) => (
           <div key={ong.id}>
             <Image
@@ -37,8 +37,8 @@ export function PartnerNGOs() {
               width={100}
               height={100}
               className="rounded-full object-cover"
+              title={ong.name}
             />
-            <h2>{ong.name}</h2>
           </div>
         ))}
       </div>
