@@ -1,7 +1,11 @@
+import { useDonation } from '@/context/donationContext';
 import bannerImage from '../../public/banner.png';
 import Image from 'next/image';
 
 export function Banner() {
+
+  const { openModal } = useDonation();
+
   return (
     <div
       className="bg-black relative min-h-[400px]   overflow-hidden"
@@ -25,7 +29,8 @@ export function Banner() {
           Cada compra é um gesto de amor!
         </p>
       </div>
-      <button className="text-orange-100 font-bold text-lg md:text-xl lg:text-2xl 
+      <button
+        className="text-orange-100 font-bold text-lg md:text-xl lg:text-2xl 
         flex items-center justify-center 
         bg-orange-400 hover:bg-orange-500
         shadow-md hover:shadow-lg
@@ -33,7 +38,10 @@ export function Banner() {
         transition-all duration-200
         rounded-full px-6 py-3 
         absolute bottom-8 left-1/2 -translate-x-1/2 
-        w-[90%] md:w-auto md:min-w-[300px]">
+        w-[90%] md:w-auto md:min-w-[300px]
+        cursor-pointer"
+        onClick={openModal}
+      >
         Doe agora e mude uma vida
       </button>
     </div>
