@@ -5,32 +5,15 @@ generator client {
 datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
+  relationMode = "prisma"
 }
 
-model PixCharge {
-  id                 String          @id @default(uuid())
-  externalIdentifier String          @unique
-  transactionType    TransactionType
-  amount             Decimal         @db.Decimal(10, 2)
-  description        String?
-  dueDate            DateTime?
-  instructionText    String?
-  qrCode             String?
-  qrImage            String?
-  createdAt          DateTime        @default(now())
-  updatedAt          DateTime        @updatedAt
-}
-
-model WebhookNotification {
-  id           String   @id @default(uuid())
-  trackingCode String?
-  statusName   String?
-  payerId      String?
-  payerName    String?
-  createdAt    DateTime @default(now())
-}
-
-enum TransactionType {
-  pixDynamic
-  pixStatic
+model WebhookRecord {
+  id            String   @id @default(uuid())
+  orderId       String   @unique
+  status        String
+  amount        Float
+  currency      String
+  fullPayload   Json
+  createdAt     DateTime @default(now())
 }
