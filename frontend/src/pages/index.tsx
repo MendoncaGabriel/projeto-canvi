@@ -6,6 +6,7 @@ import { Store } from '@/components/store';
 import { PartnerNGOs } from '@/components/partnerNGOs';
 import { Footer } from '@/components/footer';
 import { DonationModal } from '@/components/donationModal';
+import { ProductModal } from '@/components/ProductModal';
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
         <Navbar />
         <Banner />
         <DonationModal />
+        <ProductModal />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 p-4 md:p-5 max-w-screen-xl mx-auto">
           <CardDonateResume title="DOAÇÕES" value="5.852" />

@@ -1,3 +1,4 @@
+import { useBuyProduct } from "@/context/buyProductContex";
 import Image from "next/image";
 
 interface ProductProps {
@@ -10,12 +11,26 @@ interface ProductProps {
 }
 
 export function ProductCard({ image, name, description, price, oldPrice, discount }: ProductProps) {
+  const { openModal, setProduct } = useBuyProduct();
+
+  const handleOpenModal = () => {
+    const product = {
+      image: `/products/${image}`,
+      title: name,
+      description,
+      originalPrice: oldPrice || price, 
+      price,
+    };
+    setProduct(product); 
+    openModal();
+  };
+
   return (
     <div className="hover:cursor-pointer bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden max-w-[300px]">
       <div className="relative">
-        <Image 
+        <Image
           src={`/products/${image}`}
-          alt={name} 
+          alt={name}
           className="w-full aspect-[3/4] object-cover"
           width={300}
           height={333}
@@ -30,7 +45,7 @@ export function ProductCard({ image, name, description, price, oldPrice, discoun
       <div className="p-4">
         <h3 className="text-lg font-semibold text-gray-800 mb-2">{name}</h3>
         <p className="text-gray-600 text-sm mb-3 line-clamp-2">{description}</p>
-        
+
         <div className="flex justify-between items-center">
           <div className="flex flex-col">
             {oldPrice && (
@@ -42,8 +57,11 @@ export function ProductCard({ image, name, description, price, oldPrice, discoun
               R$ {price.toFixed(2)}
             </span>
           </div>
-          
-          <button className="bg-orange-400 hover:bg-orange-500 text-white px-4 py-2 rounded-full transition-colors duration-200">
+
+          <button
+            onClick={handleOpenModal}
+            className="bg-orange-400 hover:bg-orange-500 text-white px-4 py-2 rounded-full transition-colors duration-200"
+          >
             Comprar
           </button>
         </div>

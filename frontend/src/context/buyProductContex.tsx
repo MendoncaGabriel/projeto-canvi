@@ -4,12 +4,22 @@ interface BuyProductContextType {
   isOpen: boolean;
   openModal: () => void;
   closeModal: () => void;
+  setProduct: (product: Product | null) => void;
+  product: Product | null;
+}
+interface Product {
+  image: string;
+  title: string
+  description: string
+  originalPrice: number
+  price: number
 }
 
 const BuyProductContext = createContext<BuyProductContextType | undefined>(undefined);
 
 export function BuyProductProvider({ children }: { children: ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [product, setProduct] = useState<Product | null>(null);
 
   function openModal() {
     setIsOpen(true);
@@ -20,7 +30,7 @@ export function BuyProductProvider({ children }: { children: ReactNode }) {
   }
 
   return (
-    <BuyProductContext.Provider value={{ isOpen, openModal, closeModal }}>
+    <BuyProductContext.Provider value={{ isOpen, openModal, closeModal, product, setProduct }}>
       {children}
     </BuyProductContext.Provider>
   );
