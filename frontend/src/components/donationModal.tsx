@@ -1,6 +1,6 @@
 import { useDonation } from "@/context/donationContext";
 import Image from "next/image";
-import { IoClose } from "react-icons/io5";
+import { AiOutlineClose } from "react-icons/ai";
 import imgDonate from "../../public/donate.png";
 
 export function DonationModal() {
@@ -15,7 +15,7 @@ export function DonationModal() {
           onClick={closeModal}
           className="absolute cursor-pointer top-2 right-2 sm:top-4 sm:right-4 bg-orange-500 hover:bg-orange-600 text-white p-2 rounded-full transition-all duration-300 shadow-lg"
         >
-          <IoClose size={24} />
+          <AiOutlineClose size={24} />
         </button>
 
         <div className="flex flex-col md:flex-row items-stretch gap-6 sm:gap-12 mt-8">

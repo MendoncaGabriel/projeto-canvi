@@ -1,12 +1,16 @@
 import { useBuyProduct } from "@/context/buyProductContex";
+import { usePayment } from "@/context/paymentContext";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { IoClose, IoRemove, IoAdd } from "react-icons/io5";
+import { useRouter } from 'next/router';
 
 export function ProductModal() {
   const { isOpen, closeModal, product } = useBuyProduct();
+  const { setProduct } = usePayment()
   const [amount, setAmount] = useState(1);
   const [totalPrice, setTotalPrice] = useState(product?.price || 0);
+  const router = useRouter();
 
   useEffect(() => {
     if (product?.price) {
@@ -25,6 +29,16 @@ export function ProductModal() {
     if (amount > 1) {
       setAmount(amount - 1);
     }
+  }
+
+  const btnBuy = () => {
+    if (!product) return;
+    setProduct({
+      ...product,
+      amount
+    })
+
+    router.push('/payment');
   }
 
   if (!isOpen || !product) return null;
@@ -78,7 +92,7 @@ export function ProductModal() {
             </div>
 
             <button
-              onClick={() => { }}
+              onClick={btnBuy}
               className="w-full py-3 bg-orange-400 cursor-pointer hover:bg-orange-500 text-white font-bold rounded-lg transition-all duration-300 text-2xl"
             >
               Comprar Agora
