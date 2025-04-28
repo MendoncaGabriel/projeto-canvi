@@ -1,0 +1,1 @@
+em um senario de produção os produtos devem ser carregados da base de dados para garatir a integridade dos dados.

@@ -51,7 +51,7 @@ export function DonationModal() {
                 alt="QR Code para doação"
                 width={500}
                 height={500}
-                className="rounded-lg w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px] object-contain"
+                className=" w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px] object-contain"
               />
             </div>
           </div>
