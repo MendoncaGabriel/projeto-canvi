@@ -6,6 +6,7 @@ import { errorHandler } from "./util/error.handle";
 
 
 export const app = Fastify();
+
 app.setErrorHandler(errorHandler);
 
 app.register(jwt, {

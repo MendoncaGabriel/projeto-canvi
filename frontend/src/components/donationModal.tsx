@@ -2,9 +2,28 @@ import { useDonation } from "@/context/donationContext";
 import Image from "next/image";
 import { AiOutlineClose } from "react-icons/ai";
 import imgDonate from "../../public/donate.png";
+import { getStaticPixDonate } from "@/api/staticPixServiceDonate";
+import { useEffect, useState, useRef } from "react";
 
 export function DonationModal() {
   const { isOpen, closeModal } = useDonation();
+  const [qrCode, setQrCode] = useState("");
+  const qrCodeCache = useRef<string>("");
+
+  useEffect(() => {
+    async function fetchQRCode() {
+      if (isOpen && !qrCodeCache.current) {
+        const staticPixDonate = await getStaticPixDonate();
+        const newQrCode = staticPixDonate.data.qrcode;
+        setQrCode(newQrCode);
+        qrCodeCache.current = newQrCode;
+      } else if (isOpen && qrCodeCache.current) {
+        setQrCode(qrCodeCache.current);
+      }
+    }
+
+    fetchQRCode();
+  }, [isOpen]);
 
   if (!isOpen) return null;
 
@@ -31,6 +50,7 @@ export function DonationModal() {
               </p>
             </div>
 
+
             <Image
               src={imgDonate.src}
               alt="Cãozinho resgatado"
@@ -39,6 +59,8 @@ export function DonationModal() {
               className="rounded-full object-cover mb-4 m-auto h-48 w-48 sm:h-60 sm:w-60"
             />
 
+
+
             <p className="text-sm text-gray-500 text-center md:text-left mt-auto">
               Sua ajuda faz toda a diferença. Obrigado por salvar vidas! 🐾
             </p>
@@ -46,13 +68,15 @@ export function DonationModal() {
 
           <div className="flex items-center justify-center md:w-1/2 h-full">
             <div className="h-full flex items-center">
-              <Image
-                src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=pix1234567890"
-                alt="QR Code para doação"
-                width={500}
-                height={500}
-                className=" w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px] object-contain"
-              />
+              {qrCode && (
+                <Image
+                  src={qrCode}
+                  alt="QR Code para doação"
+                  width={500}
+                  height={500}
+                  className=" w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px] object-contain"
+                />
+              )}
             </div>
           </div>
         </div>
