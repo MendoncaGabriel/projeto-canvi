@@ -2,7 +2,7 @@ import { FastifyInstance } from "fastify";
 import { Auth } from "../middleware/auth";
 import { CreatePixStaticController } from "../controller/createPixStaticController";
 import { CreatePixDynamicController } from "../controller/createPixDynamicController";
-import { WebhookController } from "../webhook/webhookController";
+import { WebhookController } from "../controller/webhookController";
 
 const createPixStaticController = new CreatePixStaticController();
 const createPixDynamicController = new CreatePixDynamicController();
