@@ -1,18 +1,40 @@
 import { useBuyProduct } from "@/context/buyProductContex";
 import Image from "next/image";
-import { IoClose } from "react-icons/io5";
+import { useEffect, useState } from "react";
+import { IoClose, IoRemove, IoAdd } from "react-icons/io5";
 
 export function ProductModal() {
   const { isOpen, closeModal, product } = useBuyProduct();
+  const [amount, setAmount] = useState(1);
+  const [totalPrice, setTotalPrice] = useState(product?.price || 0);
+
+  useEffect(() => {
+    if (product?.price) {
+      const calculatedPrice = (amount * product.price);
+      setTotalPrice(Number(calculatedPrice.toFixed(2)));
+    }
+  }, [product, amount]);
+
+  const addMore = () => {
+    if (amount < 10) {
+      setAmount(amount + 1);
+    }
+  };
+
+  const removeMore = () => {
+    if (amount > 1) {
+      setAmount(amount - 1);
+    }
+  }
 
   if (!isOpen || !product) return null;
 
   return (
-    <div className="fixed inset-0 bg-black/90 flex items-center justify-center z-50 px-4">
+    <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 px-4">
       <div className="bg-white rounded-3xl p-8 shadow-2xl w-full max-w-4xl relative animate-fadeIn max-h-[90vh] overflow-y-auto">
         <button
           onClick={closeModal}
-          className="absolute top-4 right-4 bg-rose-500 hover:bg-rose-600 text-white p-2 rounded-full transition-all duration-300 shadow-lg"
+          className="absolute top-4 right-4 bg-orange-500 hover:bg-orange-600 text-white p-2 rounded-full transition-all duration-300 shadow-lg"
         >
           <IoClose size={24} />
         </button>
@@ -33,31 +55,31 @@ export function ProductModal() {
             <p className="text-gray-600 mb-6">{product.description}</p>
 
             <div className="flex items-center gap-4 mb-6">
-              <div className="text-lg font-bold text-rose-500">
+              <div className="text-lg font-bold text-orange-400">
                 <span className="line-through text-gray-500">{`R$ ${product.originalPrice.toFixed(2)}`}</span>
-                <span className="ml-2">{`R$ ${product.price.toFixed(2)}`}</span>
+                <span className="ml-2 text-2xl">{`R$ ${totalPrice}`}</span>
               </div>
             </div>
 
             <div className="flex items-center gap-4 mb-6">
               <button
-                onClick={() => {}}
-                className="bg-rose-500 text-white p-2 rounded-md hover:bg-rose-600"
+                onClick={removeMore}
+                className="bg-orange-400 text-white p-2 rounded-md hover:bg-orange-500 flex items-center justify-center"
               >
-                -
+                <IoRemove size={20} />
               </button>
-              <span className="text-xl font-semibold">1</span>
+              <span className="text-xl font-semibold text-gray-600">{amount}</span>
               <button
-                onClick={() => {}}
-                className="bg-rose-500 text-white p-2 rounded-md hover:bg-rose-600"
+                onClick={addMore}
+                className="bg-orange-400 text-white p-2 rounded-md hover:bg-orange-500 flex items-center justify-center"
               >
-                +
+                <IoAdd size={20} />
               </button>
             </div>
 
             <button
-              onClick={() => {}}
-              className="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-lg transition-all duration-300"
+              onClick={() => { }}
+              className="w-full py-3 bg-orange-400 cursor-pointer hover:bg-orange-500 text-white font-bold rounded-lg transition-all duration-300 text-2xl"
             >
               Comprar Agora
             </button>
