@@ -29,11 +29,17 @@ export function CardDonateResume({ title, value }: CardDonateResumeProps) {
   }, [finalValue]);
 
   return (
-    <div className="bg-gray-200 rounded-xl p-4 md:p-5 w-full sm:w-64 md:w-72 lg:w-80 text-center shadow-md hover:shadow-lg transition-all duration-300">
-      <h2 className="text-xl sm:text-2xl font-bold text-amber-900">{title}</h2>
-      <p className="text-lg sm:text-xl md:text-2xl font-bold text-orange-400">
-        R${count.toLocaleString('pt-BR', { minimumFractionDigits: 3, maximumFractionDigits: 3 })}
-      </p>
+    <div className="bg-gradient-to-br from-orange-100 to-orange-200 rounded-2xl p-6 w-full sm:w-64 md:w-72 lg:w-80 text-center shadow-lg hover:shadow-xl transition-all duration-300 border border-orange-300/20">
+      <div className="space-y-3">
+        <h2 className="text-xl sm:text-2xl font-extrabold text-amber-900 tracking-tight">
+          {title}
+        </h2>
+        <div className="bg-white/50 backdrop-blur-sm rounded-xl py-4 px-3">
+          <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-orange-500 tracking-tight">
+            R${count.toLocaleString('pt-BR', { minimumFractionDigits: 3, maximumFractionDigits: 3 })}
+          </p>
+        </div>
+      </div>
     </div>
   );
 }
