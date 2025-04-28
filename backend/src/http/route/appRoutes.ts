@@ -13,7 +13,7 @@ export function AppRoutes(app: FastifyInstance) {
     mensagem: "Endpoint protegido",
   }));
 
-  app.post("/donate", createPixStaticController.handler);
-  app.post("/buy", createPixDynamicController.handler);
+  app.post("/pix/donate", createPixStaticController.handler);
+  app.post("/pix/buy", createPixDynamicController.handler);
   app.post("/webhook", webhookController.handler);
 }

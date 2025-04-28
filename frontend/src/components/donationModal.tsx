@@ -1,6 +1,6 @@
 import { useDonation } from "@/context/donationContext";
 import Image from "next/image";
-import { AiOutlineClose, AiOutlineLoading3Quarters } from "react-icons/ai";  // Add this import
+import { AiOutlineClose, AiOutlineLoading3Quarters } from "react-icons/ai";
 import imgDonate from "../../public/donate.png";
 import { getStaticPixDonate } from "@/api/staticPixServiceDonate";
 import { useEffect, useState, useRef } from "react";

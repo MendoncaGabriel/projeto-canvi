@@ -4,7 +4,6 @@ import jwt from "@fastify/jwt";
 import { env } from "./env";
 import { errorHandler } from "./util/error.handle";
 
-
 export const app = Fastify();
 
 app.setErrorHandler(errorHandler);

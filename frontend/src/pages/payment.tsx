@@ -1,38 +1,48 @@
+import { getDynamicPixbuy } from "@/api/dynamicPixBuyService";
 import { FormPayment } from "@/components/FormPayment";
 import { usePayment } from "@/context/paymentContext";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 
 export default function PaymentPage() {
-  const [paymentLink, setPaymentLink] = useState<string>("");
   const { product } = usePayment();
   const router = useRouter();
-
-
   const [showForm, setShowForm] = useState(true);
-
-
+  const [qrCode, setQrCode] = useState("")
 
   useEffect(() => {
-    if (product) {
-      const generatePaymentLink = () => {
-        const totalAmount = product.price * product.amount;
-        const paymentURL = `https://pagamentoexemplo.com/checkout?amount=${totalAmount}`;
-        setPaymentLink(paymentURL);
-      };
 
-      generatePaymentLink();
+    async function fetchQRCode() {
+      if (product) {
+        const totalAmount = product.price * product.amount;
+        const result = await getDynamicPixbuy({
+          userName: "jhon due",
+          cpf: "000.000.000-00",
+          email: "jhondue@email.com",
+          value: totalAmount
+        })
+        const newQrCode = result.data.qrcode;
+        setQrCode(newQrCode)
+      }
     }
+    fetchQRCode()
+
   }, [product]);
 
+  useEffect(() => {
+    if (!product) {
+      const timer = setTimeout(() => {
+        router.push("/");
+      }, 3000);
+      
+      return () => clearTimeout(timer);
+    }
+  }, [product, router]);
+
   if (!product) {
-    setTimeout(() => {
-      router.push("/");
-    }, 3000)
-
-
     return (
       <div className="bg-gradient-to-br from-orange-100 to-orange-200 min-h-screen flex items-center justify-center">
         <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl">
@@ -86,9 +96,7 @@ export default function PaymentPage() {
 
         <FormPayment setShowForm={setShowForm} />
 
-
-
-        {!showForm && paymentLink && (
+        {!showForm && (
           <div className="text-center space-y-4">
             <h2 className="text-2xl font-bold text-amber-900">
               Escaneie o QR Code para pagar
@@ -97,13 +105,22 @@ export default function PaymentPage() {
               Use seu aplicativo de banco favorito para escanear e realizar o pagamento
             </p>
             <div className="bg-white rounded-2xl p-6 shadow-md inline-block">
+              {qrCode ? (
               <Image
-                src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=pix1234567890"
+                src={qrCode}
                 alt="QR Code Pagamento"
                 width={250}
                 height={250}
                 className="mx-auto"
               />
+              ) : (
+                <div className="flex flex-col items-center justify-center text-orange-400">
+                  <AiOutlineLoading3Quarters className="animate-spin text-6xl mb-4" />
+                  <p className="text-lg font-medium animate-pulse">
+                    Carregando QR Code...
+                  </p>
+                </div>
+              )}
             </div>
           </div>
         )}

@@ -10,8 +10,8 @@ export function CardDonateResume({ title, value }: CardDonateResumeProps) {
   const finalValue = parseFloat(value.replace(/,/g, ''));
 
   useEffect(() => {
-    const duration = 3000; // 3 seconds
-    const steps = 60; // 60 steps for smooth animation
+    const duration = 3000;
+    const steps = 60;
     const increment = finalValue / steps;
     let current = 0;
     

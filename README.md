@@ -110,3 +110,9 @@ projeto-canvi/
 - Backend: Node.js, Fastify, Prisma
 - Banco de Dados: MySQL
 - Containerização: Docker
+
+# Funcionalidades não implementadas
+- sistema de jobs assincronos para processamento de pagamentos
+- sistema de autenticação
+- sistema cache com redis
+- configuração da virtualização docker
