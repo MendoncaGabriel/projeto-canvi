@@ -12,4 +12,4 @@ app.register(jwt, {
   secret: env.PRIVATE_KEY,
 });
 
-app.register(AppRoutes);
+app.register(AppRoutes, {prefix: "/api"});

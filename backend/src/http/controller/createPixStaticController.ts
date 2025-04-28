@@ -10,15 +10,15 @@ export class CreatePixStaticController {
     const createStaticPix = new GeneratePixStaticUseCase(clientAxios);
 
     const requestBody = z.object({
-      valor: z.number(),
-      descricao: z.string(),
-    })
+      value: z.number(),
+      description: z.string(),
+    });
 
-    const { valor, descricao } = requestBody.parse(req.body);
+    const { value, description } = requestBody.parse(req.body);
 
     const result = await createStaticPix.execute({
-      valor,
-      descricao,
+      valor: value,
+      descricao: description,
       tipo_transacao: "pixStaticCashin",
       texto_instrucao: "Teste de Criacao de Pix estatico",
       identificador_externo: randomUUID(),
