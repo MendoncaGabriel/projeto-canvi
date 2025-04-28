@@ -10,7 +10,7 @@ export class CreatePixStaticController {
     const createStaticPix = new GeneratePixStaticUseCase(clientAxios);
 
     const requestBody = z.object({
-      value: z.number(),
+      value: z.number().default(0),
       description: z.string(),
     });
 
