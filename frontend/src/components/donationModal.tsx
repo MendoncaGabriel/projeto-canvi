@@ -1,6 +1,6 @@
 import { useDonation } from "@/context/donationContext";
 import Image from "next/image";
-import { AiOutlineClose } from "react-icons/ai";
+import { AiOutlineClose, AiOutlineLoading3Quarters } from "react-icons/ai";  // Add this import
 import imgDonate from "../../public/donate.png";
 import { getStaticPixDonate } from "@/api/staticPixServiceDonate";
 import { useEffect, useState, useRef } from "react";
@@ -68,14 +68,21 @@ export function DonationModal() {
 
           <div className="flex items-center justify-center md:w-1/2 h-full">
             <div className="h-full flex items-center">
-              {qrCode && (
+              {qrCode ? (
                 <Image
                   src={qrCode}
                   alt="QR Code para doação"
                   width={500}
                   height={500}
-                  className=" w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px] object-contain"
+                  className="w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px] object-contain"
                 />
+              ) : (
+                <div className="flex flex-col items-center justify-center text-orange-400">
+                  <AiOutlineLoading3Quarters className="animate-spin text-6xl mb-4" />
+                  <p className="text-lg font-medium animate-pulse">
+                    Carregando QR Code...
+                  </p>
+                </div>
               )}
             </div>
           </div>
