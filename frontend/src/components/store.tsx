@@ -49,18 +49,35 @@ export function Store() {
         Compre com propósito, faça a diferença!
       </p>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6 place-items-center">
-        {mockProducts.map(product => (
-          <ProductCard
-            key={product.id}
-            image={product.image}
-            name={product.name}
-            description={product.description}
-            price={product.price}
-            oldPrice={product.oldPrice}
-            discount={product.discount}
-          />
-        ))}
+      <div className="sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6 place-items-center">
+        <div className="flex sm:hidden gap-4 overflow-x-auto pb-4 snap-x snap-mandatory w-full">
+          {mockProducts.map(product => (
+            <div key={product.id} className="snap-center shrink-0">
+              <ProductCard
+                image={product.image}
+                name={product.name}
+                description={product.description}
+                price={product.price}
+                oldPrice={product.oldPrice}
+                discount={product.discount}
+              />
+            </div>
+          ))}
+        </div>
+
+        <div className="hidden sm:contents">
+          {mockProducts.map(product => (
+            <ProductCard
+              key={product.id}
+              image={product.image}
+              name={product.name}
+              description={product.description}
+              price={product.price}
+              oldPrice={product.oldPrice}
+              discount={product.discount}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
