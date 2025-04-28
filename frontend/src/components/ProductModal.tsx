@@ -31,7 +31,7 @@ export function ProductModal() {
 
   return (
     <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 px-4">
-      <div className="bg-white rounded-3xl p-8 shadow-2xl w-full max-w-4xl relative animate-fadeIn max-h-[90vh] overflow-y-auto">
+      <div className="bg-white sm:rounded-3xl rounded-xl p-8 shadow-2xl w-full max-w-4xl relative animate-fadeIn max-h-[90vh] overflow-y-auto">
         <button
           onClick={closeModal}
           className="absolute top-4 right-4 bg-orange-500 hover:bg-orange-600 text-white p-2 rounded-full transition-all duration-300 shadow-lg"
